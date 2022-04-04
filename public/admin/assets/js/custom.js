@@ -131,3 +131,88 @@ $(".form-user-update").submit(function(e) {
 
     form.addClass('was-validated');
 })
+
+$(".form-category-create").submit(function(e) {
+    e.preventDefault();
+
+    var form = $(this);
+    if (form[0].checkValidity() === false) {
+        event.stopPropagation();
+    } else {
+        try {
+            $('.btn-category-create').addClass('disabled')
+            const fd = new FormData(e.currentTarget)
+            const sendData = async ()=> {
+              const { data, status } = await Api.post(form[0].action,fd);
+              if (data.success) {
+                iziToast.success({
+                  title: 'Sucesso!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                form[0].reset() 
+                form.removeClass('was-validated');
+                $('.btn-category-create').removeClass('disabled')
+              } else {
+                iziToast.error({
+                  title: 'Falha ao adicionar categoria!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                $('.btn-category-create').removeClass('disabled')
+              }
+            }
+            sendData()
+        } catch(e) {
+            iziToast.error({
+              title: 'Falha do sistema!',
+              message: "Erro no servidor.",
+              position: 'topRight'
+            });
+        }
+    }
+
+    form.addClass('was-validated');
+})
+
+$(".form-category-update").submit(function(e) {
+    e.preventDefault();
+
+    var form = $(this);
+    if (form[0].checkValidity() === false) {
+        event.stopPropagation();
+    } else {
+        try {
+            $('.btn-category-update').addClass('disabled')
+            const fd = new FormData(e.currentTarget)
+            const sendData = async ()=> {
+              const { data, status } = await Api.post(form[0].action,fd);
+              if (data.success) {
+                iziToast.success({
+                  title: 'Sucesso!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                form.removeClass('was-validated');
+                $('.btn-category-update').removeClass('disabled')
+              } else {
+                iziToast.error({
+                  title: 'Falha na atualização!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                $('.btn-category-update').removeClass('disabled')
+              }
+            }
+            sendData()
+        } catch(e) {
+            iziToast.error({
+              title: 'Falha do sistema!',
+              message: "Erro no servidor.",
+              position: 'topRight'
+            });
+        }
+    }
+
+    form.addClass('was-validated');
+})

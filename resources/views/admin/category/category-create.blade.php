@@ -15,16 +15,17 @@
                 <div class="card card-info">
     
                     <div class="card-body">
-                        <form method="post" class="needs-validation" novalidate="">
+                        <form method="post" action="{{ route('admin.category-create') }}" class="needs-validation form-category-create" novalidate="">
+                            @csrf
                             <div class="form-group">
                               <label>Nome da categoria: </label>
-                              <input type="text" name="name" class="form-control" required />
+                              <input type="text" name="category" class="form-control" required />
                               <div class="invalid-feedback">
                                 Por favor informe o nome da categoria
                               </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-info btn-lg btn-block" tabindex="4">
+                                <button type="submit" class="btn btn-info btn-category-create btn-lg btn-block" tabindex="4">
                                     Adicionar
                                 </button>
                             </div>

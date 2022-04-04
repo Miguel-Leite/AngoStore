@@ -14,7 +14,7 @@ class UserUsecase {
 
     public static function getUsers()
     {
-        $query = DB::select("SELECT users.login, users.inadmin, persons.* FROM persons INNER JOIN users ON users.persons_id=persons.id");
+        $query = DB::select("SELECT users.login, users.inadmin, persons.* FROM persons INNER JOIN users ON users.persons_id=persons.id ORDER BY persons.id DESC");
         return $query;
     }
 
