@@ -18,7 +18,7 @@ class CreateTableOrder extends Migration
             $table->foreignId("carts_id")->constrained()->cascadeOnDelete();
             $table->foreignId("users_id")->constrained()->cascadeOnDelete();
             $table->foreignId("orderstatus_id")->constrained("ordersstatus","id")->cascadeOnDelete();
-            $table->decimal("vltotal",10);
+            $table->decimal("total",10);
             $table->timestamps();
         });
     }

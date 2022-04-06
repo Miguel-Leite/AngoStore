@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section-header">
-        <h1>Atualizar categoria</h1>
+        <h1>Atualizar categoria {{ $category->category }}</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item"><a href="{{ route('admin.users')}}">Painel administrativo</a></div>
             <div class="breadcrumb-item active"><a href="{{ route('admin.category')}}">Categorias</a></div>

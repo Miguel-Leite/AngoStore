@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section-header">
-        <h1>Atualizar usuario</h1>
+        <h1>Atualizar usuario {{ $user->person }} </h1>
     </div>
     <div class="container">
         <div class="row justify-content-center">

@@ -72,7 +72,7 @@
             <li class="menu-header">Dashboard</li>            
             <li><a class="nav-link" href="{{ route('admin.users')}}"><i class="fas fa-user"></i> <span>Usuarios</span> </a></li>
             <li><a class="nav-link" href="{{ route('admin.category')}}"><i class="fas fa-list"></i> <span>Categorias</span> </a></li>
-            <li><a class="nav-link" href="{{ route('admin.users')}}"><i class="fas fa-cart-plus"></i> <span>Produtos</span> </a></li>
+            <li><a class="nav-link" href="{{ route('admin.product')}}"><i class="fas fa-cart-plus"></i> <span>Produtos</span> </a></li>
           </ul>        
         </aside>
       </div>

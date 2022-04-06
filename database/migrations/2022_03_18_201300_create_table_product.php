@@ -16,12 +16,13 @@ class CreateTableProduct extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string("product",64);
-            $table->decimal("vlprice",10);
-            $table->decimal("vlwidth",10);
-            $table->decimal("vlheight",10);
-            $table->decimal("vllength",10);
-            $table->decimal("vlweight",10);
-            $table->string("desurl",255);
+            $table->decimal("price",10);
+            $table->decimal("width",10);
+            $table->decimal("height",10);
+            $table->decimal("length",10);
+            $table->decimal("weight",10);
+            $table->string("image_default",255);
+            $table->string("image_other",255)->nullable();
             $table->timestamps();
         });
     }

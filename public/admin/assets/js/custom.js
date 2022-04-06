@@ -23,10 +23,12 @@ $(".form-user-login").submit(function(e) {
                   message: data.message,
                   position: 'topRight'
                 });
+                form.removeClass('was-validated');
                 setTimeout(()=>{
                    location.assign("home")
                 },4000)
               } else {
+                form.removeClass('was-validated');
                 iziToast.error({
                   title: 'Falha na autenticação!',
                   message: data.message,
@@ -175,6 +177,9 @@ $(".form-category-create").submit(function(e) {
     form.addClass('was-validated');
 })
 
+/**
+ * */
+
 $(".form-category-update").submit(function(e) {
     e.preventDefault();
 
@@ -202,6 +207,95 @@ $(".form-category-update").submit(function(e) {
                   position: 'topRight'
                 });
                 $('.btn-category-update').removeClass('disabled')
+              }
+            }
+            sendData()
+        } catch(e) {
+            iziToast.error({
+              title: 'Falha do sistema!',
+              message: "Erro no servidor.",
+              position: 'topRight'
+            });
+        }
+    }
+
+    form.addClass('was-validated');
+})
+
+
+
+
+$(".form-product-create").submit(function(e) {
+    e.preventDefault();
+
+    var form = $(this);
+    if (form[0].checkValidity() === false) {
+        event.stopPropagation();
+    } else {
+        try {
+            $('.btn-product-create').addClass('disabled')
+            const fd = new FormData(e.currentTarget)
+            const sendData = async ()=> {
+              const { data, status } = await Api.post(form[0].action,fd);
+              if (data.success) {
+                iziToast.success({
+                  title: 'Sucesso!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                form[0].reset() 
+                form.removeClass('was-validated');
+                $('.btn-product-create').removeClass('disabled')
+              } else {
+                iziToast.error({
+                  title: 'Falha ao adicionar produto!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                $('.btn-product-create').removeClass('disabled')
+              }
+            }
+            sendData()
+        } catch(e) {
+            iziToast.error({
+              title: 'Falha do sistema!',
+              message: "Erro no servidor.",
+              position: 'topRight'
+            });
+        }
+    }
+
+    form.addClass('was-validated');
+})
+
+$(".form-product-update").submit(function(e) {
+    e.preventDefault();
+
+    var form = $(this);
+    if (form[0].checkValidity() === false) {
+        event.stopPropagation();
+    } else {
+        try {
+            $('.btn-product-update').addClass('disabled')
+            const fd = new FormData(e.currentTarget)
+            const sendData = async ()=> {
+              const { data, status } = await Api.post(form[0].action,fd);
+              if (data.success) {
+                iziToast.success({
+                  title: 'Sucesso!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                // form[0].reset() 
+                form.removeClass('was-validated');
+                $('.btn-product-update').removeClass('disabled')
+              } else {
+                iziToast.error({
+                  title: 'Falha ao adicionar produto!',
+                  message: data.message,
+                  position: 'topRight'
+                });
+                $('.btn-product-update').removeClass('disabled')
               }
             }
             sendData()
