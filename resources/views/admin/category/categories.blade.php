@@ -18,9 +18,9 @@
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th style="width: 15px">#</th>
                     <th>Nome da categoria</th>
-                    <th></th>
+                    <th style="width: 360px;">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,8 +29,15 @@
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->category }}</td>
                             <td>
-                                <a href="{{ route('admin.category-edit',$category->id) }}" class="btn btn-info">Editar</a>
-                                <a href="javascript:;" class="btn btn-danger" onclick="comfirmDeleteCategory('{{ route('admin.category-delete',$category->id) }}','{{ $category->category }}')">Excluir</a>
+                                <a href="#" class="btn btn-light">
+                                <i class="fa fa-edit"></i>
+                                Produtos</a>
+                                <a href="{{ route('admin.category-edit',$category->id) }}" class="btn btn-info">
+                                <i class="fa fa-edit"></i>
+                                Editar</a>
+                                <a href="javascript:;" class="btn btn-danger" onclick="comfirmDeleteCategory('{{ route('admin.category-delete',$category->id) }}','{{ $category->category }}')">
+                                <i class="fa fa-trash"></i>
+                                Excluir</a>
                             </td>
                         </tr>
                     @endforeach

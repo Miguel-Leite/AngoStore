@@ -67,15 +67,8 @@
                     </div>
                   </div>
 
-                  {{-- <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me" required>
-                      <label class="custom-control-label" for="remember-me">Lembra me neste disposito</label>
-                    </div>
-                  </div> --}}
-
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-login btn-lg btn-block" tabindex="4">
+                    <button type="submit" class="btn btn-primary btn-login btn-login btn-lg btn-block" tabindex="4">
                         Entrar
                     </button>
                   </div>

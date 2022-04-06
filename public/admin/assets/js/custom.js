@@ -14,7 +14,7 @@ $(".form-user-login").submit(function(e) {
     } else {
         try {
             const fd = new FormData(e.currentTarget)
-
+            $('.btn-login').attr('disabled','true')
             const sendData = async ()=> {
               const { data, status } = await Api.post('admin/login',fd);
               if (data.success) {
@@ -26,8 +26,9 @@ $(".form-user-login").submit(function(e) {
                 form.removeClass('was-validated');
                 setTimeout(()=>{
                    location.assign("home")
-                },4000)
+                },3000)
               } else {
+                $('.btn-login').removeAttr('disabled')
                 form.removeClass('was-validated');
                 iziToast.error({
                   title: 'Falha na autenticação!',
