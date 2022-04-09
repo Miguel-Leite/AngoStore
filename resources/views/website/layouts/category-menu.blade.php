@@ -1,0 +1,1 @@
+<li><a href="{{"http://127.0.0.1:8000/categoria/laptops/produtos/1"}}">Laptops</a></li><li><a href="{{"http://127.0.0.1:8000/categoria/acessorios/produtos/3"}}">Acessorios</a></li><li><a href="{{"http://127.0.0.1:8000/categoria/c%C3%A2meras/produtos/4"}}">Câmeras</a></li><li><a href="{{"http://127.0.0.1:8000/categoria/telefones/produtos/5"}}">Telefones</a></li>

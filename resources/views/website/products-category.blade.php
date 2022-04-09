@@ -13,13 +13,14 @@
 					<div class="col-md-3 col-xs-6">
 						<div class="product">
 							<div class="product-img">
-								<img src="{{ url("storage/$product->image_default") }}" alt="">
+								<img src="{{ url("storage/$product->image_default") }}" alt="{{ $product->image_default }}">
 								<div class="product-label">
 									<span class="new">Novo</span>
 								</div>
 							</div>
 							<div class="product-body">
-								<h3 class="product-name" style="font-size: 12px !important;"><a href="{{ route('website.product',$product->product) }}"> {{ $product->product }} </a></h3>
+								<p class="product-category">Categoria: {{ $product->category }}</p>
+								<h3 class="product-name" style="font-size: 12px !important;"><a href="{{ route('website.product',$product->product) }}">{{ $product->product }}</a></h3>
 								<h4 class="product-price">AKZ {{formatPrice($product->price)}} <del class="product-old-price">AKZ {{lastPrice($product->price)}}</del></h4>
 								<div class="product-rating">
 								</div>
@@ -34,7 +35,6 @@
 					</div>
 				@endforeach
 				<!-- /product -->
-				{{-- <div class="clearfix visible-sm visible-xs"></div> --}}
 			</div>
 			<!-- /row -->
 			<!-- store bottom filter -->
@@ -53,6 +53,7 @@
 	</div>
 	<!-- /Section -->
 @endsection
+
 @section('page-script')
 
 <script>

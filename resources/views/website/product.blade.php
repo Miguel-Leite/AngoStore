@@ -11,7 +11,7 @@
 					<ul class="breadcrumb-tree">
 						<li><a href="{{ route('website.index') }}">Home</a></li>
 						<li><a href="{{ route('website.index') }}">Categoria</a></li>
-						<li><a href="{{ route('website.product') }}">Produto</a></li>
+						<li>{{ $product->product }}</li>
 					</ul>
 				</div>
 			</div>
@@ -28,75 +28,56 @@
 			<!-- row -->
 			<div class="row">
 				<!-- Product main img -->
-				<div class="col-md-5 col-md-push-2">
+				<div class="@if ($product->image_other) col-md-5 col-md-push-2 @else: col-md-5 col-md-push-1 @endif">
 					<div id="product-main-img">
 						<div class="product-preview">
-							<img src="{{ asset('website/img/product01.png') }}" alt="">
+							<img src="{{ url("storage/$product->image_default") }}" alt="{{ url("storage/$product->image_default") }}">
 						</div>
-
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product03.png') }}" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product06.png') }}" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product08.png') }}" alt="">
-						</div>
+						@if ($product->image_other)
+							<div class="product-preview">
+								<img src="{{ url("storage/$product->image_other") }}" class="img-responsive" alt="">
+							</div>
+						@endif
 					</div>
 				</div>
 				<!-- /Product main img -->
 
 				<!-- Product thumb imgs -->
-				<div class="col-md-2  col-md-pull-5">
-					<div id="product-imgs">
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product01.png') }}" alt="">
-						</div>
 
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product03.png') }}" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product06.png') }}" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="{{ asset('website/img/product08.png') }}" alt="">
+				@if ($product->image_other)
+					<div class="col-md-2  col-md-pull-5">
+						<div id="product-imgs">
+							<div class="product-preview">
+								<img src="{{ url("storage/$product->image_other") }}" class="img-responsive" alt="">
+							</div>	
+							<div class="product-preview">
+								<img src="{{ url("storage/$product->image_default") }}" class="img-responsive" alt="">
+							</div>	
 						</div>
 					</div>
-				</div>
+				@else
+					<div class="col-md-2  col-md-pull-1"></div>
+				@endif
 				<!-- /Product thumb imgs -->
 
 				<!-- Product details -->
 				<div class="col-md-5">
 					<div class="product-details">
-						<h2 class="product-name">product name goes here</h2>
+						<h2 class="product-name">{{ $product->product }}</h2>
+						<div></div>
 						<div>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-							</div>
-							<a class="review-link" href="#">10 Visualizações</a>
-						</div>
-						<div>
-							<h3 class="product-price">AKZ 980.00 <del class="product-old-price">AKZ 990.00</del></h3>
+							<h3 class="product-price">AKZ {{formatPrice($product->price)}} <del class="product-old-price">AKZ {{lastPrice($product->price)}}</del></h3>
 							{{-- <span class="product-available">In Stock</span> --}}
 						</div>
 						{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> --}}
 
 						<div class="product-options">
 							<label>
-								Tamanho
+								Tamanho: <b>{{ $product->length }}</b>
+								{{-- 
 								<select class="input-select">
-									<option value="0">X</option>
-								</select>
+									<option value="0" disabled>{{ $product->length }}</option>
+								</select> --}}
 							</label>
 							{{-- <label>
 								Color
@@ -115,6 +96,8 @@
 									<span class="qty-down">-</span>
 								</div>
 							</div>
+							<br>
+							<br>
 							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Adiconar ao carrinho</button>
 						</div>
 {{-- 

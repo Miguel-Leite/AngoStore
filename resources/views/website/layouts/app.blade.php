@@ -80,16 +80,6 @@
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-								<!-- Wishlist -->
-								{{-- <div>
-									<a href="#">
-										<i class="fa fa-heart-o"></i>
-										<span>Your Wishlist</span>
-										<div class="qty">2</div>
-									</a>
-								</div> --}}
-								<!-- /Wishlist -->
-
 								<!-- Cart -->
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
@@ -163,10 +153,7 @@
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="{{ route('website.index') }}">Home</a></li>
 						<li><a href="{{ route('website.products') }}">Loja</a></li>
-						<li><a href="{{ route('website.index') }}">Laptops</a></li>
-						<li><a href="{{ route('website.index') }}">Smartphones</a></li>
-						<li><a href="{{ route('website.index') }}">Câmeras</a></li>
-						<li><a href="{{ route('website.index') }}">Acesssorios</a></li>
+						@include('website.layouts.category-menu')  
 						{{-- <li><a href="{{ route('website.cart') }}">Carrinho</a></li> --}}
 					</ul>
 					<!-- /NAV -->
@@ -243,10 +230,7 @@
 							<div class="footer">
 								<h3 class="footer-title">Produtos</h3>
 								<ul class="footer-links">
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessorios</a></li>
+									@include('website.layouts.category-menu')  
 								</ul>
 							</div>
 						</div>
@@ -316,6 +300,6 @@
 		<script src="{{ asset('website/js/nouislider.min.js') }}"></script>
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/main.js') }}"></script>
-
+		@yield('page-script');
 	</body>
 </html>

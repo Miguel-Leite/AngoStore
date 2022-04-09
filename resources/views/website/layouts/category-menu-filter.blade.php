@@ -1,0 +1,1 @@
+<li><a data-toggle="tab" href="{{ "#telefones" }}" class="{{"active"}}">Telefones</a></li><li><a data-toggle="tab" href="{{ "#câmeras" }}" class="{{""}}">Câmeras</a></li><li><a data-toggle="tab" href="{{ "#acessorios" }}" class="{{""}}">Acessorios</a></li><li><a data-toggle="tab" href="{{ "#laptops" }}" class="{{""}}">Laptops</a></li>

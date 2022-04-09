@@ -16,11 +16,19 @@ class AuthController extends Controller
     public function login (Request $request)
     {
         if (Auth::attempt(['login' => $request->login,'password'=>$request->password])) {
-            // return redirect()->route('admin.users')->with('success',"Bem-vindo ao panel de control");
+            $login = auth()->user()->login;
+            if (auth()->user()->inadmin < 1) {
+                // Session::flush();
+                Auth::logout();
+                return json_encode([
+                "success"=>false,
+                "message" => "$login não tens permissão de acessar essa página."
+            ]);
+            }
             return json_encode([
                 "success"=>true,
                 "error"=>false,
-                "message"=> "Login efectuado com successo."
+                "message"=> "Login efectuado com successo. Seja bem-vindo $login!"
             ]);
         } else {
             return json_encode([

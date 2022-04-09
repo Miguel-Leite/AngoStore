@@ -29,7 +29,7 @@
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->category }}</td>
                             <td>
-                                <a href="#" class="btn btn-light">
+                                <a href="{{ route('admin.category-produts',$category->id) }}" class="btn btn-light">
                                 <i class="fa fa-edit"></i>
                                 Produtos</a>
                                 <a href="{{ route('admin.category-edit',$category->id) }}" class="btn btn-info">
