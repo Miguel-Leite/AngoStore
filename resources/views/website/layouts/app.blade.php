@@ -300,6 +300,6 @@
 		<script src="{{ asset('website/js/nouislider.min.js') }}"></script>
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/main.js') }}"></script>
-		@yield('page-script');
+		@yield('page-script')
 	</body>
 </html>
