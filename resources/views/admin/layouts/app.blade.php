@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>AngoShop - Painel Adminstrativo</title>
+  <title>AngoStore - Painel Adminstrativo</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -61,7 +61,7 @@
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
             <p></p>
-            <a href="{{ route('admin.users')}}"> <h4>Ango<span class="text-danger">Shop</span></h4> </a>
+            <a href="{{ route('admin.users')}}"> <h4>Ango<span class="text-danger">Store</span></h4> </a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <p></p>
