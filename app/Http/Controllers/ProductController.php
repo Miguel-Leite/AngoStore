@@ -105,4 +105,8 @@ class ProductController extends Controller
 
         return json_encode(["success"=>true,"message"=>'Producto removido com sucesso!']);
     }
+
+    public function getProducts() {
+        return response()->json(Product::all(), 200);;
+    }
 }

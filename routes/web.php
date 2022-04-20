@@ -25,6 +25,7 @@ Route::get('/categoria/{category}/produtos/{id}',[HomeController::class,'product
 Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
 Route::get('/conta',[HomeController::class,'login'])->name('website.login');
 
+Route::get('/products',[ProductController::class,'getProducts'])->name('website.productsAll');
 
 Route::get('/admin/login',[AuthController::class,'index'])->name('admin.login');
 Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login');
