@@ -21,6 +21,11 @@ for (let index = 0; index < btnAddProduct.length; index++) {
 
 function setProductsInCart(product) {
     if (localStorage.getItem('productInCart')===null) {
+        iziToast.success({
+            title: 'Adicionado no carrinho',
+            message: `Produto ${product.product} adicionado no carrinho com sucesso.`,
+            position: 'topRight'
+          });
         localStorage.setItem('productInCart',JSON.stringify([product]))
         setProducts([product])
     } else {
@@ -29,11 +34,21 @@ function setProductsInCart(product) {
             if(allProducts[i].id===product.id) {
                 allProducts[i].inCart = allProducts[i].inCart+1;
                 setProducts(allProducts);
+                iziToast.info({
+                    title: 'Repilicado com sucesso!',
+                    message: `Produto ${product.product} foi repilicado no carrinho com sucesso.`,
+                    position: 'topRight'
+                  });
                 return localStorage.setItem('productInCart',JSON.stringify(allProducts))
             }           
         }
         allProducts = [product,...allProducts];
         setProducts(allProducts)
         localStorage.setItem('productInCart',JSON.stringify(allProducts))
+        iziToast.success({
+            title: 'Adicionado no carrinho',
+            message: `Produto ${product.product} adicionado no carrinho com sucesso.`,
+            position: 'topRight'
+          });
     }
 }

@@ -24,6 +24,8 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{ asset('website/css/style.css') }}"/>
 
+		<link rel="stylesheet" href="{{ asset('admin/assets/modules/izitoast/css/iziToast.min.css') }}">
+
     </head>
 	<body>
 		<!-- HEADER -->
@@ -297,6 +299,7 @@
 		<script src="{{ asset('website/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('website/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('website/js/slick.min.js') }}"></script>
+		<script src="{{ asset('admin/assets/modules/izitoast/js/iziToast.min.js') }}"></script>
 		<script src="{{ asset('website/js/nouislider.min.js') }}"></script>
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/axios/axios.js') }}"></script>
