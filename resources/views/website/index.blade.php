@@ -101,7 +101,7 @@
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar </button>
+													<button class="add-to-cart-btn" key="{{ $product->id }}"><i class="fa fa-shopping-cart"></i> Comprar </button>
 												</div>
 											</div>
 											<!-- /product -->
@@ -217,7 +217,7 @@
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Comprar </button>
+													<button class="add-to-cart-btn" key="{{ $product->id }}"><i class="fa fa-shopping-cart"></i> Comprar </button>
 												</div>
 											</div>
 											<!-- /product -->
