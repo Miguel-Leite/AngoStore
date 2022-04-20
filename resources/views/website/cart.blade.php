@@ -10,6 +10,7 @@
 						<thead>
 							{{--  table-inverse --}}
 							<tr>
+								<th></th>
 								<th>Produto(s)</th>
 								<th>Preço</th>
 								<th>Quantidade</th>
@@ -18,27 +19,16 @@
 						</thead>
 						<tbody>
 							<tr>
+								<td>
+									<span id="remove">&times;</span>
+								</td>
 								<td>Iphone 6s</td>
 								<td># 160000,00</td>
-								<td>1</td>
-								<td>AKZ 170000,00</td>
-							</tr>
-							<tr>
-								<td>Iphone 6s</td>
-								<td># 160000,00</td>
-								<td>1</td>
-								<td>AKZ 170000,00</td>
-							</tr>
-							<tr>
-								<td>Iphone 6s</td>
-								<td># 160000,00</td>
-								<td>1</td>
-								<td>AKZ 170000,00</td>
-							</tr>
-							<tr>
-								<td>Iphone 6s</td>
-								<td># 160000,00</td>
-								<td>1</td>
+								<td class="quantity">
+									<div class="btn-minus">-</div>
+									<input type="text" name="qty" value="1"/>
+									<div class="btn-plus">+</div>
+								</td>
 								<td>AKZ 170000,00</td>
 							</tr>
 						</tbody>

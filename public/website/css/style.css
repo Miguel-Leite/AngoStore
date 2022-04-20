@@ -642,7 +642,7 @@ textarea.input {
   .header-ctn .menu-toggle {
     display: inline-block;
   }
-  #responsivar(--primary-ws){
+  #responsive-nav{
     position: fixed;
     left: 0;
     top: 0;
@@ -651,7 +651,8 @@ textarea.input {
     max-width: 250px;
     width: 0%;
     overflow: hidden;
-    z-indevar(--primary-ws)    padding-top: 60px;
+    z-index: 999;    
+    padding-top: 60px;
     -webkit-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
@@ -2191,7 +2192,7 @@ textarea.input {
 }
 
 .auth .nav-tabs .active li a:hover {
-  background-color: var(--primary-ws); !important;
+  background-color: var(--primary-ws) !important;
 }
 
 .auth .nav-tabs > li a:hover {
@@ -2271,6 +2272,37 @@ textarea.input {
   background-color: var(--primary-ws) !important;
   border-radius: 20px !important;
   color: white !important;
+}
+
+.cart .table tr .quantity {
+  display: flex;
+  align-items: center;
+}
+.cart .table tr .quantity .btn-minus,
+.cart .table tr .quantity .btn-plus {
+  background-color: var(--primary-ws);
+  /* height: 100%; */
+  /* width: 5%; */
+  color: var(--light-ws);
+  font-weight: bold;
+  text-align: center;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.cart .table tr #remove {
+  padding: 5px 10px;
+  background-color: var(--primary-ws);
+  color: var(--light-ws);
+  transition: background-color .2s ease-in;
+  cursor: pointer;
+}
+.cart .table tr #remove:hover {
+  background-color: rgb(224, 56, 56);
+}
+.cart .table tr input {
+  width: 40px;
+  text-align: center;
+  border: 3px solid var(--primary-ws) !important;
 }
 
 .cart .panel-default>.panel-heading {
