@@ -17,7 +17,7 @@ class CreateTableCartproduct extends Migration
             $table->id();
             $table->foreignId("carts_id")->constrained()->cascadeOnDelete();
             $table->foreignId("products_id")->constrained()->cascadeOnDelete();
-            $table->dateTime("dtremoved");
+            $table->dateTime("dtremoved")->nullable();
             $table->timestamps();
         });
     }
