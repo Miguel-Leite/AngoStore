@@ -17,7 +17,7 @@ function formatPrice (float $price)
 
 function lastPrice (float $price)
 {
-	$lastPrice = 10000.00;
+	$lastPrice = 34000.00;
 	$price = ceil($price + $lastPrice);
 	return number_format($price, 2, ",", ".");
 }
