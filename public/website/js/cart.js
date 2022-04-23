@@ -27,13 +27,11 @@ function setProductsInCart(product) {
             position: 'topRight'
           });
         localStorage.setItem('productInCart',JSON.stringify([product]))
-        setProducts([product])
     } else {
         let allProducts = JSON.parse(localStorage.getItem('productInCart'))
         for (let i = 0; i < allProducts.length; i++) {
             if(allProducts[i].id===product.id) {
                 allProducts[i].inCart = allProducts[i].inCart+1;
-                setProducts(allProducts);
                 iziToast.info({
                     title: 'Repilicado com sucesso!',
                     message: `Produto ${product.product} foi repilicado no carrinho com sucesso.`,
@@ -43,7 +41,6 @@ function setProductsInCart(product) {
             }           
         }
         allProducts = [product,...allProducts];
-        setProducts(allProducts)
         localStorage.setItem('productInCart',JSON.stringify(allProducts))
         iziToast.success({
             title: 'Adicionado no carrinho',
@@ -52,3 +49,11 @@ function setProductsInCart(product) {
           });
     }
 }
+
+
+function countProductInCart() {
+    let products = localStorage.getItem('productInCart') !=null?JSON.parse(localStorage.getItem('productInCart')).length:0;
+    document.querySelector('.qty-cart').innerHTML=`${products}`;
+}
+
+setInterval(countProductInCart,1000)

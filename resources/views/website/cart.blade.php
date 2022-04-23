@@ -18,7 +18,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							{{-- <tr>
 								<td>
 									<span id="remove">&times;</span>
 								</td>
@@ -30,7 +30,7 @@
 									<div class="btn-plus">+</div>
 								</td>
 								<td>AKZ 170000,00</td>
-							</tr>
+							</tr> --}}
 						</tbody>
 					</table>
 				</div>
@@ -42,7 +42,11 @@
 						<div class="panel-body">
 							<div class="subtotal">
 								<p class="text">Sub-total</p>
-								<p class="value">AKZ 170000,00</p>
+								<p class="value"></p>
+							</div>
+							<div class="subtotal">
+								<p class="text">Frete</p>
+								<p class="value">AKZ {{ formatPrice(10000) }}</p>
 							</div>
 							<div class="total">
 								<p class="text">Total</p>
@@ -55,4 +59,8 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('page-script')
+	<script src="{{ asset('website/js/productsCartTable.js') }}"></script>	
 @endsection

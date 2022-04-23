@@ -28,7 +28,7 @@
 						<div class="shop-img">
 							<img src="{{ asset('website/img/shop03.png') }}" alt="">
 						</div>
-						<div class="shop-body">
+						<div class="shop-body" onclick="">
 							<h3>Colecções de <br>Accessorios</h3>
 							{{-- <a href="#" class="cta-btn">Ver agora <i class="fa fa-arrow-circle-right"></i></a> --}}
 						</div>
@@ -264,5 +264,7 @@
 		// document.querySelector('.min').innerHTML=`${}`
 		// document.querySelector('.second').innerHTML=`${}`
 	}, 1000);
+
+	const _state = JSON.parse(localStorage.getItem('productInCart'));
 </script>
 @endsection

@@ -87,7 +87,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Seu carrinho</span>
-										<div class="qty">3</div>
+										<div class="qty qty-cart">0</div>
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
@@ -304,7 +304,7 @@
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/axios/axios.js') }}"></script>
 		<script src="{{ asset('website/js/main.js') }}"></script>
-		<script src="{{ asset('website/js/cart.js') }}" type="module"></script>
 		@yield('page-script')
+		<script src="{{ asset('website/js/cart.js') }}" type="module"></script>
 	</body>
 </html>
