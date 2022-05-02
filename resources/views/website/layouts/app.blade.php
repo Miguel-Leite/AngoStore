@@ -65,8 +65,8 @@
 
 						<!-- SEARCH BAR -->
 						<div class="col-md-6">
-							{{-- <div class="header-search">
-								<form>
+							<div class="header-search">
+								{{-- <form>
 									<select class="input-select">
 										<option value="0">All Categories</option>
 										<option value="1">Category 01</option>
@@ -74,8 +74,8 @@
 									</select>
 									<input class="input" placeholder="Search here">
 									<button class="search-btn">Search</button>
-								</form>
-							</div> --}}
+								</form> --}}
+							</div>
 						</div>
 						<!-- /SEARCH BAR -->
 
@@ -91,7 +91,7 @@
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
-											<div class="product-widget">
+											{{-- <div class="product-widget">
 												<div class="product-img">
 													<img src="{{ asset('website/img/product01.png') }}" alt="">
 												</div>
@@ -111,10 +111,11 @@
 													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
+											</div> --}}
+											
 										</div>
 										<div class="cart-summary">
-											<small>3 Item(s) seleciodo(s)</small>
+											<small> <span class="count"></span> Item(s) seleciodo(s)</small>
 											<h5>SUBTOTAL: $2940.00</h5>
 										</div>
 										<div class="cart-btns">
