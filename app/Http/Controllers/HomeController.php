@@ -65,4 +65,8 @@ class HomeController extends Controller
     public function login(){
         return view('website.login');
     }
+
+    public function profile() {
+        return view('website.profile');
+    }
 }
