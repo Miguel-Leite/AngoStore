@@ -14,15 +14,17 @@
                   <div id="login" class="tab-pane fade in active">
                     <form action="{{ route('website.login') }}" method="POST" class="login-client">
                         @csrf
-                        <input type="email" name="email" placeholder="E-mail" required />
+                        <input type="text" name="login" placeholder="Login" required />
                         <input type="password" name="password" placeholder="Palavra-passe" required />
                         <button class="btn btn-info col-sm-12">Entrar</button>
                     </form>
                   </div>
                   <div id="register" class="tab-pane fade">
                     <form action="#">
-                        <input type="text" name="username" placeholder="Nome completo" required />
+                        <input type="text" name="person" placeholder="Nome completo" required />
+                        <input type="text" name="login" placeholder="Login" required />
                         <input type="email" name="email" placeholder="E-mail" required />
+                        <input type="text" name="phone" placeholder="Telefone" required />
                         <input type="password" name="password" placeholder="Palavra-passe" required />
                         <input type="password" name="c_password" placeholder="Confirma palavra-passe" required />
                         <button class="btn btn-info col-sm-12">Registra-se</button>
