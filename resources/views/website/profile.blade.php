@@ -34,7 +34,18 @@
                             </form>
                         </div>
                         <div id="alterPassword" class="tab-pane fade">
-                            2
+                            <form action="" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="password">Palavra-passe nova:</label>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Digite a palavra-passe nova" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_c">Confirmar palavra-passe:</label>
+                                    <input type="password" name="password_c" id="password_c" class="form-control" placeholder="Confirma a palavra-passe" required>
+                                </div>
+                                <button type="submit" class="btn btn-info col-sm-12">Atualizar palavra-passe</button>
+                            </form>
                         </div>
                         <div id="myRequest" class="tab-pane fade">
                             3
