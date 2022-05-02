@@ -40,8 +40,8 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-money"></i> AKZ</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> Minha conta</a></li>
-						<li><a href="{{ route('website.login') }}"><i class="fa fa-lock"></i> Conta</a></li>
+						<li><a href="{{ route('website.profile') }}"><i class="fa fa-user-o"></i> Minha conta</a></li>
+						<li><a href="{{ route('website.account') }}"><i class="fa fa-lock"></i> Conta</a></li>
 					</ul>
 				</div>
 			</div>
