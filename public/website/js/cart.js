@@ -1,7 +1,6 @@
-import { useState } from './hooks/hooks.js';
-
 const btnAddProduct = document.querySelectorAll('.add-to-cart-btn');
-const [products, setProducts] = useState(localStorage.getItem('productInCart') !== null? JSON.parse(localStorage.getItem('productInCart')) : []);
+const getProductsInCarts = () => JSON.parse(localStorage.getItem('productInCart')) ?? [];
+
 
 for (let index = 0; index < btnAddProduct.length; index++) {
     btnAddProduct[index].addEventListener('click',()=>{
@@ -22,7 +21,7 @@ for (let index = 0; index < btnAddProduct.length; index++) {
 function setProductsInCart(product) {
     if (localStorage.getItem('productInCart')===null) {
         iziToast.success({
-            title: 'Adicionado no carrinho',
+            title: 'Adicionado com sucesso!',
             message: `Produto ${product.product} adicionado no carrinho com sucesso.`,
             position: 'topRight'
           });
@@ -54,6 +53,32 @@ function setProductsInCart(product) {
 function countProductInCart() {
     let products = localStorage.getItem('productInCart') !=null?JSON.parse(localStorage.getItem('productInCart')).length:0;
     document.querySelector('.qty-cart').innerHTML=`${products}`;
+    document.querySelector('.cart-summary > small > .count').innerHTML=`${products}`;
 }
+
+function cartList() {
+    let items = getProductsInCarts()
+    let count = items.length > 1 ? 2 : 1
+
+    const cartList = document.querySelector('.cart-list')
+    cartList.innerHTML='';
+
+    for (let i = 0; i < count; i++) {
+        let productWidget = document.createElement('div')
+        productWidget.classList.add('product-widget')
+        productWidget.innerHTML = `
+        <div class="product-img">
+            <img src="storage/${items[i].image_default}" alt="">
+        </div>
+        <div class="product-body">
+            <h3 class="product-name"><a href="#">${items[i].product}</a></h3>
+            <h4 class="product-price"><span class="qty">${items[i].inCart}x</span>AKZ ${items[i].price * items[i].inCart}</h4>
+        </div>
+        <button class="delete"><i class="fa fa-close"></i></button>
+        `;
+        cartList.appendChild(productWidget)
+    }
+}
+setInterval(cartList,1000)
 
 setInterval(countProductInCart,1000)
