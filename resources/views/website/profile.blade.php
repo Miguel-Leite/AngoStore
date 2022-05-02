@@ -10,7 +10,7 @@
                         <li class="active col-12"><a data-toggle="tab" href="#dataUser">Dados Pessoas</a></li>
                         <li class="col-12"><a data-toggle="tab" href="#alterPassword">Alterar senha</a></li>
                         <li class="col-12"><a data-toggle="tab" href="#myRequest">Meus Pedidos</a></li>
-                        <li class="col-12"><a data-toggle="tab" href="#logout">Sair</a></li>
+                        <li class="col-12"><a href="{{ route('website.logout') }}">Sair</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-8 col-xl-8 col-md-6 col-xs-12">
