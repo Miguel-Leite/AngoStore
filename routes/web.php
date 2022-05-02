@@ -24,6 +24,7 @@ Route::get('/detalhes/produto/{productName}',[HomeController::class,'product'])-
 Route::get('/categoria/{category}/produtos/{id}',[HomeController::class,'productsByCategory'])->name('website.products-category');
 Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
 Route::get('/conta',[HomeController::class,'login'])->name('website.login');
+Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
 
 Route::get('/products',[ProductController::class,'getProducts'])->name('website.productsAll');
 
