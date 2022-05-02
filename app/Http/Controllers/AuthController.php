@@ -72,4 +72,12 @@ class AuthController extends Controller
 
         return redirect()->route('admin.login');
     }
+
+    public function logoutClient() {
+        Session::flush();
+        
+        Auth::logout();
+
+        return redirect()->route('website.account');
+    }
 }
