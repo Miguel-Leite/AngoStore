@@ -12,7 +12,7 @@
 
                 <div class="tab-content">
                   <div id="login" class="tab-pane fade in active">
-                    <form action="#">
+                    <form action="{{ route('website.login') }}" class="login-client">
                         <input type="email" name="email" placeholder="E-mail" required />
                         <input type="password" name="password" placeholder="Palavra-passe" required />
                         <button class="btn btn-info col-sm-12">Entrar</button>
