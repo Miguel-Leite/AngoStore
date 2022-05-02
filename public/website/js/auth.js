@@ -3,7 +3,7 @@ import { Api } from './services.js';
 document.forms[0].addEventListener('submit',async (e)=> {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const { data, status } = await Api.post('conta/login',fd);
+    const { data, status } = await Api.post('account/login',fd);
     if (data.success) {
         iziToast.success({
             title: 'Sucesso!',
