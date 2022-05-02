@@ -23,8 +23,7 @@ Route::get('/produtos',[HomeController::class,'products'])->name('website.produc
 Route::get('/detalhes/produto/{productName}',[HomeController::class,'product'])->name('website.product');
 Route::get('/categoria/{category}/produtos/{id}',[HomeController::class,'productsByCategory'])->name('website.products-category');
 Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
-Route::get('/conta',[HomeController::class,'login'])->name('website.login');
-Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
+Route::get('/conta',[HomeController::class,'login'])->name('website.account');
 
 Route::get('/products',[ProductController::class,'getProducts'])->name('website.productsAll');
 Route::post('/account/login',[AuthController::class,'loginClient'])->name('website.login');
@@ -32,6 +31,12 @@ Route::post('/account/register',[UserController::class,'store'])->name('website.
 
 Route::get('/admin/login',[AuthController::class,'index'])->name('admin.login');
 Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login');
+
+
+Route::middleware(["authClient"])->group(function() {
+	Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
+	Route::get('/conta/sair',[AuthController::class,'logoutClient'])->name('website.logout');
+});
 
 Route::prefix("admin")->middleware(["authAdmin"])->group(function() {
 
