@@ -12,7 +12,8 @@
 
                 <div class="tab-content">
                   <div id="login" class="tab-pane fade in active">
-                    <form action="{{ route('website.login') }}" class="login-client">
+                    <form action="{{ route('website.login') }}" method="POST" class="login-client">
+                        @csrf
                         <input type="email" name="email" placeholder="E-mail" required />
                         <input type="password" name="password" placeholder="Palavra-passe" required />
                         <button class="btn btn-info col-sm-12">Entrar</button>
@@ -32,4 +33,8 @@
         </div>
     </div>
 
+@endsection
+
+@section('page-script')
+<script src="{{ asset('website/js/auth.js') }}" type="module"></script>    
 @endsection
