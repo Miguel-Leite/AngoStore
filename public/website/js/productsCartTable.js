@@ -1,10 +1,6 @@
 const tbody = document.querySelector('tbody')
 const getProductsInCarts = () => JSON.parse(localStorage.getItem('productInCart')) ?? [];
 
-function viewProductsInCarts() {
-    
-}
-
 function loadProducts () {
     let items = getProductsInCarts()
     let subtotal = document.querySelector('.subtotal > .value')
