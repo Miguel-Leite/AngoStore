@@ -1,9 +1,7 @@
 import { Api } from './services.js';
-document.querySelector('login-client').addEventListener('submit',authentication,false);
 
-async function authentication(e) {
+document.forms[0].addEventListener('submit',async (e)=> {
     e.preventDefault();
-
     const fd = new FormData(e.currentTarget);
     const { data, status } = await Api.post('conta/login',fd);
     if (data.success) {
@@ -22,4 +20,4 @@ async function authentication(e) {
             position: 'topRight'
           });
     }
-}
+},false)
