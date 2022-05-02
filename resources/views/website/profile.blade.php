@@ -20,15 +20,15 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Nome completo:</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Digite o seu nome" required>
+                                    <input type="text" name="name" value="{{ authUser()->person }}" id="name" class="form-control" placeholder="Digite o seu nome" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail" required>
+                                    <input type="email" name="email" value="{{ authUser()->email }}" id="email" class="form-control" placeholder="Digite o seu E-mail" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Telefone:</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite o seu nº de telefone" required>
+                                    <input type="text" name="phone" value="{{ authUser()->phone }}" id="phone" class="form-control" placeholder="Digite o seu nº de telefone" required>
                                 </div>
                                 <button type="submit" class="btn btn-info col-sm-12">Atualizar dados pessoas</button>
                             </form>
