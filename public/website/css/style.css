@@ -2337,3 +2337,42 @@ textarea.input {
   font-weight: 800;
   background-color: var(--bluelight-ws);
 }
+
+/*=========================================================
+  15 -> PROFILE
+===========================================================*/
+
+.profile {
+  margin: 30px 0px;
+}
+
+.profile .nav {
+  border: 1px solid #E4E7ED;
+  border-radius: 5px;
+  /* padding: 10px 0px; */
+}
+
+.profile .nav li a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.profile .nav li.active {
+  border-radius: 5px;
+  background-color: var(--primary-ws) !important;
+}
+.profile .nav li.active a:hover,
+.profile .nav li.active a {
+  color: var(--light-ws)!important;
+  background-color: transparent!important;
+}
+.profile .nav li a:hover {
+  color: var(--text);
+}
+
+.profile form input {
+  padding: 2.5rem 1rem;
+}
+.profile form button {
+  padding: 1.5rem;
+}
