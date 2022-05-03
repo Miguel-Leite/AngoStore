@@ -17,9 +17,8 @@ class CreateTableCart extends Migration
             $table->id();
             $table->integer("session_id");
             $table->foreignId("users_id")->constrained()->cascadeOnDelete();
-            $table->string("bi",20);
-            $table->decimal("freight",10);
-            $table->integer("days");
+            $table->decimal("freight",10)->default(10000.00);
+            $table->integer("days")->default(3);
             $table->timestamps();
         });
     }
