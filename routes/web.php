@@ -35,6 +35,8 @@ Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login')
 
 Route::middleware(["authClient"])->group(function() {
 	Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
+	Route::post('/conta/perfil/{id}',[UserController::class,'update'])->name('website.updateUser');
+	Route::post('/conta/perfil/senha/{id}',[UserController::class,'resetPassword'])->name('website.resetPassword');
 	Route::get('/conta/sair',[AuthController::class,'logoutClient'])->name('website.logout');
 });
 
