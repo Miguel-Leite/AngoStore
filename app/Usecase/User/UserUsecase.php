@@ -12,6 +12,13 @@ class UserUsecase {
 
     const SECRET = "angostore_secret";
 
+    public static function getFromSession()
+    {
+        if (auth()->check() && (int)auth()->user()->id > 0) {
+            $data = auth()->user();
+        }
+    }
+
     public static function getUsers()
     {
         $query = DB::select("SELECT users.login, users.inadmin, persons.* FROM persons INNER JOIN users ON users.persons_id=persons.id ORDER BY persons.id DESC");
