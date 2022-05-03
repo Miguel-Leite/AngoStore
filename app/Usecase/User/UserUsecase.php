@@ -38,14 +38,14 @@ class UserUsecase {
             $userdata = [
                 "persons_id" => Persons::orderBy('id', 'desc')->limit(1)->first()->id,
                 "login" => $data["login"],
-                "password" => password_hash("123456",1),
+                "password" => $data["password"]?password_hash($data["password"],1):password_hash("123456",1),
                 "inadmin" => (isset($data["inadmin"]) ? 1 : 0)
             ];
 
             User::create($userdata);
 
             return true;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
             
@@ -63,10 +63,11 @@ class UserUsecase {
 
             $userdata = [
                 "persons_id" => $id,
-                "login" => $data["login"],
                 "inadmin" => (isset($data["inadmin"]) ? 1 : 0)
             ];
-
+            if (isset($data["login"])) {
+                $userdata['login'] = $data["login"];
+            }
             $person = Persons::find($id);
             $person->update($personData);
 
@@ -74,7 +75,7 @@ class UserUsecase {
             $user->update($userdata);
 
             return true;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
     }
