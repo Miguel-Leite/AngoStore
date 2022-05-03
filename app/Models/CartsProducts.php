@@ -10,7 +10,7 @@ class CartsProducts extends Model
 {
     use HasFactory;
     protected $table = 'cartsproducts';
-    protected $fillable = ['carts_id','products_id','dtremoved'];
+    protected $fillable = ['carts_id','products_id','quantity','dtremoved'];
 
     public function removeProduct($id=[], $all=false)
     {

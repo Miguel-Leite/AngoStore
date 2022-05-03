@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductsCategories;
+use App\Usecase\BI\AddressUsecase;
+use App\Usecase\Cart\CartUsecase;
 use Illuminate\Http\Request;
 use App\Usecase\Category\CategoryUseCase;
 
@@ -59,7 +61,29 @@ class HomeController extends Controller
     }
 
     public function cart () {
+        // dd(session()->);
+        CartUsecase::getFromSession();
         return view('website.cart');
+    }
+
+    public function orderFinished(Request $request)
+    {
+        $verify=false;
+        $data = $request->all();
+        // return $data;
+        foreach ($data as $key => $value) {
+            $data = [
+                'products_id' => $value['id'],
+                'quantity' => $value['inCart'],
+                'carts_id' => session(CartUsecase::SESSION)->id
+            ];
+            // return $data;
+            $verify = CartUsecase::addProduct($data);
+        }
+        if ($verify) {
+            return json_encode(['success'=>true,'message'=>'Compra finalizada com sucesso!']);   
+        }
+        return json_encode(['success'=>false,'message'=>'Não foi possível finalizar a compra.']);
     }
 
     public function login(){
@@ -68,5 +92,13 @@ class HomeController extends Controller
 
     public function profile() {
         return view('website.profile');
+    }
+
+    public function checkout()
+    {
+        $address = new AddressUsecase();
+        if (isset($_GET['bi'])) {
+
+        }
     }
 }

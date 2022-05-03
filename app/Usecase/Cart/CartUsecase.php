@@ -65,17 +65,10 @@ class CartUsecase
 
     public static function addProduct($data)
     {
-        try {
-            if ($data->inCart > 1) {
-                for ($i=0; $i < $data->inCart; $i++) { 
-                    CartsProducts::create($data);
-                }
-            } else {
-                CartsProducts::create($data);
-            }
+        $results = CartsProducts::create($data);
+        if($results) {
             return true;
-        } catch (\Exception $e) {
-            return false;
         }
+        return false;
     }
 }
