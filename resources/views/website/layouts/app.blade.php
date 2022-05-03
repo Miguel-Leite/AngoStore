@@ -301,6 +301,8 @@
 		<script src="{{ asset('website/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('website/js/slick.min.js') }}"></script>
 		<script src="{{ asset('admin/assets/modules/izitoast/js/iziToast.min.js') }}"></script>
+		<script src="{{ asset('admin/assets/js/page/modules-sweetalert.js') }}"></script>
+  		<script src="{{ asset('admin/assets/modules/sweetalert/sweetalert.min.js') }}"></script>
 		<script src="{{ asset('website/js/nouislider.min.js') }}"></script>
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/axios/axios.js') }}"></script>

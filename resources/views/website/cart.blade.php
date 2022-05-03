@@ -54,7 +54,7 @@
 							</div>
 						</div>
 					</div>
-					<a href="#" class="btn btn-info col-sm-12">Finalizar compra</a>
+					<a href="{{ route('website.orderFinished') }}" class="btn btn-info col-sm-12 btn-finishedOrders">Finalizar compra</a>
 				</div>
 			</div>
 		</div>

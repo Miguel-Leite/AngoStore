@@ -67,3 +67,18 @@ function subTotal() {
 function totalOrder() {
     return subTotal() + 10000;
 }
+
+if (document.querySelector('.btn-finishedOrders')){
+    const btnFinishedOrders = document.querySelector('.btn-finishedOrders');
+    btnFinishedOrders.addEventListener('click', async (e) => {
+        e.preventDefault(); 
+        const {data} = await axios.post(btnFinishedOrders.href,JSON.parse(localStorage.getItem('productInCart')));
+        if (data.success) {
+            localStorage.setItem('productInCart',JSON.stringify([]))
+            loadProducts()
+            swal('Concluído!',data.message,'success')
+        } else {
+            swal('Ops! Falhou.', data.message);
+        }
+    })
+}

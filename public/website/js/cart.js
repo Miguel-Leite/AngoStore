@@ -1,7 +1,6 @@
 const btnAddProduct = document.querySelectorAll('.add-to-cart-btn');
 const getProductsInCarts = () => JSON.parse(localStorage.getItem('productInCart')) ?? [];
 
-
 for (let index = 0; index < btnAddProduct.length; index++) {
     btnAddProduct[index].addEventListener('click',()=>{
         let key = btnAddProduct[index].getAttribute('key');
@@ -62,23 +61,29 @@ function cartList() {
 
     const cartList = document.querySelector('.cart-list')
     cartList.innerHTML='';
-
+    
     for (let i = 0; i < count; i++) {
         let productWidget = document.createElement('div')
         productWidget.classList.add('product-widget')
-        productWidget.innerHTML = `
-        <div class="product-img">
-            <img src="storage/${items[i].image_default}" alt="">
-        </div>
-        <div class="product-body">
-            <h3 class="product-name"><a href="#">${items[i].product}</a></h3>
-            <h4 class="product-price"><span class="qty">${items[i].inCart}x</span>AKZ ${items[i].price * items[i].inCart}</h4>
-        </div>
-        <button class="delete"><i class="fa fa-close"></i></button>
-        `;
+        if (items.length > 0) {
+            productWidget.innerHTML = `
+            <div class="product-img">
+                <img src="storage/${items[i].image_default}" alt="">
+            </div>
+            <div class="product-body">
+                <h3 class="product-name"><a href="#">${items[i].product}</a></h3>
+                <h4 class="product-price"><span class="qty">${items[i].inCart}x</span>AKZ ${items[i].price * items[i].inCart}</h4>
+            </div>
+            <button class="delete"><i class="fa fa-close"></i></button>
+            `;
+        } else {
+            productWidget.innerHTML = ``;
+        }
         cartList.appendChild(productWidget)
     }
 }
+
 setInterval(cartList,1000)
 
 setInterval(countProductInCart,1000)
+
