@@ -22,7 +22,6 @@ Route::get('/',[HomeController::class,'index'])->name('website.index');
 Route::get('/produtos',[HomeController::class,'products'])->name('website.products');
 Route::get('/detalhes/produto/{productName}',[HomeController::class,'product'])->name('website.product');
 Route::get('/categoria/{category}/produtos/{id}',[HomeController::class,'productsByCategory'])->name('website.products-category');
-Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
 Route::get('/conta',[HomeController::class,'login'])->name('website.account');
 
 Route::get('/products',[ProductController::class,'getProducts'])->name('website.productsAll');
@@ -34,6 +33,8 @@ Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login')
 
 
 Route::middleware(["authClient"])->group(function() {
+	Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
+	Route::post('/carrinho/finalizar',[HomeController::class,'orderFinished'])->name('website.orderFinished');
 	Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
 	Route::post('/conta/perfil/{id}',[UserController::class,'update'])->name('website.updateUser');
 	Route::post('/conta/perfil/senha/{id}',[UserController::class,'resetPassword'])->name('website.resetPassword');
