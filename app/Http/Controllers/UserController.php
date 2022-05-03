@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Persons;
+use App\Models\User;
 use App\Usecase\User\UserUsecase;
 
 class UserController extends Controller
@@ -52,6 +53,17 @@ class UserController extends Controller
         if($user) 
             return json_encode(["success"=>true,"message"=>"Usuário atualizado com successo."]);
         return json_encode(["success"=>false,"message"=>"Não foi possível atualizar o usuário."]);
+    }
+
+    public function resetPassword(Request $request,$id) {
+        if ($request->password !== $request->password_c) {
+            return json_encode(["success"=>false,"message"=>"A senha de confirmação não está correcta."]);
+        }
+        $user = User::where("persons_id",$id);
+        $user = $user->update(["password"=>password_hash($request->password,1)]);
+        if($user) 
+            return json_encode(["success"=>true,"message"=>"Senha atualizado com successo."]);
+        return json_encode(["success"=>false,"message"=>"Não foi possível atualizar a senha."]);
     }
 
     public function delete($id) {
