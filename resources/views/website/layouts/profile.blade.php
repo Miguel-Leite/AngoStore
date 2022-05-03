@@ -244,8 +244,8 @@
 		<script src="{{ asset('website/js/nouislider.min.js') }}"></script>
 		<script src="{{ asset('website/js/jquery.zoom.min.js') }}"></script>
 		<script src="{{ asset('website/js/axios/axios.js') }}"></script>
-		<script src="{{ asset('website/js/main.js') }}"></script>
+		{{-- <script src="{{ asset('website/js/main.js') }}"></script> --}}
 		@yield('page-script')
-		<script src="{{ asset('website/js/cart.js') }}" type="module"></script>
+		{{-- <script src="{{ asset('website/js/cart.js') }}" type="module"></script> --}}
 	</body>
 </html>

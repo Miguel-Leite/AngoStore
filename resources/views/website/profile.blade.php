@@ -16,11 +16,11 @@
                 <div class="col-lg-8 col-xl-8 col-md-6 col-xs-12">
                     <div class="tab-content">
                         <div id="dataUser" class="tab-pane fade in active">
-                            <form action="" method="post">
+                            <form action="{{ route('website.updateUser',authUser()->id) }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Nome completo:</label>
-                                    <input type="text" name="name" value="{{ authUser()->person }}" id="name" class="form-control" placeholder="Digite o seu nome" required>
+                                    <label for="person">Nome completo:</label>
+                                    <input type="text" name="person" value="{{ authUser()->person }}" id="name" class="form-control" placeholder="Digite o seu nome" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-mail:</label>
@@ -34,7 +34,7 @@
                             </form>
                         </div>
                         <div id="alterPassword" class="tab-pane fade">
-                            <form action="" method="post">
+                            <form action="{{ route('website.resetPassword',authUser()->id) }}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="password">Palavra-passe nova:</label>
@@ -55,4 +55,16 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('page-script')
+<script>
+    function countProductInCart() {
+        let products = localStorage.getItem('productInCart') !=null?JSON.parse(localStorage.getItem('productInCart')).length:0;
+        document.querySelector('.qty-cart').innerHTML=`${products}`;
+        document.querySelector('.cart-summary > small > .count').innerHTML=`${products}`;
+    }
+    setInterval(countProductInCart,1000)
+</script>
+<script src="{{ asset('website/js/profile.js') }}" type="module"></script>
 @endsection
