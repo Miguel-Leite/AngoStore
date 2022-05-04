@@ -35,6 +35,10 @@ Route::post('/admin/login',[AuthController::class,'login'])->name('admin.login')
 Route::middleware(["authClient"])->group(function() {
 	Route::get('/carrinho',[HomeController::class,'cart'])->name('website.cart');
 	Route::post('/carrinho/finalizar',[HomeController::class,'orderFinished'])->name('website.orderFinished');
+	Route::get('/checkout',[HomeController::class,'checkout'])->name('website.checkout');
+	Route::post('/checkout/adicionar',[HomeController::class,'saveCheckout'])->name('website.saveCheckout');
+	Route::get('/pagamento/{id}',[HomeController::class,'order'])->name('website.order');
+	Route::get('/boleto/{id}',[HomeController::class,'boleto'])->name('website.boleto');
 	Route::get('/conta/perfil',[HomeController::class,'profile'])->name('website.profile');
 	Route::post('/conta/perfil/{id}',[UserController::class,'update'])->name('website.updateUser');
 	Route::post('/conta/perfil/senha/{id}',[UserController::class,'resetPassword'])->name('website.resetPassword');
