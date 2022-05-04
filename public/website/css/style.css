@@ -2376,3 +2376,49 @@ textarea.input {
 .profile form button {
   padding: 1.5rem;
 }
+
+
+.checkout h3 {
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.checkout .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.checkout .form-group {
+  margin-bottom: 30px;
+}
+
+.checkout .form-group input  {
+  padding: 2.4rem 1rem !important;
+}
+
+.checkout h5 {
+  margin: 30px 0px;
+  color: var(--primary-ws);
+}
+
+.checkout .table {
+  border-radius: 20px !important;
+  border: 1px solid #eee;
+}
+
+.checkout .table>thead>tr>th {
+  vertical-align: bottom;
+  border-bottom: 0 !important; 
+  font-weight: 500 !important;
+}
+
+.checkout .table>thead {
+  background-color: var(--primary-ws) !important;
+  border-radius: 20px !important;
+  color: white !important;
+}
+.checkout button.btn {
+  padding: 2rem 1rem;
+}
