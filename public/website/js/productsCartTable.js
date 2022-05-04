@@ -74,8 +74,8 @@ if (document.querySelector('.btn-finishedOrders')){
         e.preventDefault(); 
         const {data} = await axios.post(btnFinishedOrders.href,JSON.parse(localStorage.getItem('productInCart')));
         if (data.success) {
-            localStorage.setItem('productInCart',JSON.stringify([]))
-            loadProducts()
+            // localStorage.setItem('productInCart',JSON.stringify([]))
+            // loadProducts()
             swal('Concluído!',data.message,'success')
         } else {
             swal('Ops! Falhou.', data.message);
