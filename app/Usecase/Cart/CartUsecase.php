@@ -35,7 +35,7 @@ class CartUsecase
     {
         $session_id = session()->getId();
         $query = DB::select("SELECT * FROM carts WHERE session_id='$session_id'");
-        return $query[0];
+        return count($query) > 0? $query[0] : $query;
     }
 
     public static function get(int $session_id)
